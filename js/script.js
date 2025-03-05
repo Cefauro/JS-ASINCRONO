@@ -64,7 +64,12 @@ $("#btnJQuery").click(function () {
         url: "https://jsonplaceholder.typicode.com/posts/2",
         method: "GET",
         success: function (data) {
-            $("#resultJQuery").text(data.title);
+            console.log(data);
+            
+            data.forEach(function(item) {
+                $("#resultJQuery").append('<li>' + item.title + '</li>')
+            });
+            // $("#resultJQuery").text(data.title);
         },
         error: function (error) {
             console.error("Error jQuery:", error);
